@@ -1,6 +1,6 @@
 from django.conf.urls import url
 
-from blog.api import Article
+from blog.api import ArticleListView
 
 
 urlpatterns = [
