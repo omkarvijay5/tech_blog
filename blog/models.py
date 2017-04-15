@@ -11,7 +11,7 @@ from django.db import models
 
 class Category(models.Model):
 	name = models.CharField(max_length=100)
-	description = models.TextField(null=True, blank=True)
+	description = models.TextField(null=True, blank=True, help_text='Optional description of the category')
 
 	def __unicode__(self):
 		return self.name
