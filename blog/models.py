@@ -10,21 +10,45 @@ from django.db import models
 
 
 class Category(models.Model):
-	name = models.CharField(max_length=100)
-	description = models.TextField(null=True, blank=True, help_text='Optional description of the category')
+    """
+    Category represents the type of the article which belongs to.
+    ex: Hokey, Django, Programming, Politics
+    """
 
-	def __unicode__(self):
-		return self.name
+    # name of the category ex: Hokey, Cricket, Django
+    name = models.CharField(max_length=100)
+
+    description = models.TextField(null=True, blank=True, help_text='Optional description of the category')
+
+    def __unicode__(self):
+        return self.name
 
 
 class Article(models.Model):
-	title = models.CharField(max_length=255)
-	author = models.ForeignKey('settings.AUTH_USER_MODEL')
-	pub_date = models.DateTimeField(default=datetime.now, help_text='Publication date')
-	category = models.ForeignKey('blog.Category')
-	hero_image = models.ImageField(upload_to='blog_images/')
-	optional_image = models.ImageField(null=True, blank=True)
-	text = models.TextField()
+    """
+    Article represents the blog post
+    It is created by the user through admin and belongs to a particular category
+    """
+
+    # defines the title of the blog
+    title = models.CharField(max_length=255)
+
+    # author represents who has created the article
+    author = models.ForeignKey('settings.AUTH_USER_MODEL')
+
+    pub_date = models.DateTimeField(default=datetime.now, help_text='Publication date')
+
+    # represents the category to which the article belongs to
+    category = models.ForeignKey('blog.Category')
+
+    # can be a main logo or image which represents the content
+    hero_image = models.ImageField(upload_to='blog_images/')
+
+    # extra optional image if needed
+    optional_image = models.ImageField(null=True, blank=True)
+
+    # main content of the article
+    text = models.TextField()
     
     def __unicode__(self):
-    	return self.title
+        return self.title
