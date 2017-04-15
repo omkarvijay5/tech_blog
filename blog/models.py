@@ -25,4 +25,6 @@ class Article(models.Model):
 	hero_image = models.ImageField(upload_to='blog_images/')
 	optional_image = models.ImageField(null=True, blank=True)
 	text = models.TextField()
-
+    
+    def __unicode__(self):
+    	return self.title
