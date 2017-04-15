@@ -1,0 +1,1 @@
+my technical blog by using django rest framework and angularjs
