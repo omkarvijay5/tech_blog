@@ -5,8 +5,9 @@ from __future__ import unicode_literals
 from datetime import datetime
 
 from django.db import models
+from django.contrib.auth import get_user_model
 
-# Create your models here.
+User = get_user_model()
 
 
 class Category(models.Model):
@@ -34,7 +35,7 @@ class Article(models.Model):
     title = models.CharField(max_length=255)
 
     # author represents who has created the article
-    author = models.ForeignKey('settings.AUTH_USER_MODEL')
+    author = models.ForeignKey(User)
 
     pub_date = models.DateTimeField(default=datetime.now, help_text='Publication date')
 
@@ -42,10 +43,10 @@ class Article(models.Model):
     category = models.ForeignKey('blog.Category')
 
     # can be a main logo or image which represents the content
-    hero_image = models.ImageField(upload_to='blog_images/')
+    hero_image = models.ImageField(upload_to='images/')
 
     # extra optional image if needed
-    optional_image = models.ImageField(null=True, blank=True)
+    optional_image = models.ImageField(upload_to='images/', null=True, blank=True)
 
     # main content of the article
     text = models.TextField()
