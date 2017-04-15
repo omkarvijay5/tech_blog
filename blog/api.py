@@ -12,3 +12,4 @@ class ArticleListView(generics.ListAPIView):
     """
     model = Article
     serializer_class = ArticleSerializer
+    queryset = Article.objects.all()
