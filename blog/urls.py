@@ -4,5 +4,5 @@ from blog.api import ArticleListView
 
 
 urlpatterns = [
-    url(r'^articles/$', ArticleListView.as_view(), name='articles'),
+    url(r'^articles/$', ArticleListView.as_view(), name='articles_api'),
 ]
