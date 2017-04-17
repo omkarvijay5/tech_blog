@@ -3,6 +3,7 @@ import random
 
 # django imports
 from rest_framework import generics
+from rest_framework.mixins import RetrieveModelMixin
 
 # third party imports
 from blog.models import Article
@@ -29,3 +30,12 @@ class RandomArticlesApi(generics.ListAPIView):
         articles = list(self.model.objects.all().select_related('author'))
         random.shuffle(articles)
         return articles
+
+
+class ArticleDetailApi(generics.RetrieveAPIView):
+    """
+    detail endpoint of article
+    """
+    lookup_field = 'id'
+    queryset = Article.objects.all()
+    serializer_class = ArticleSerializer
