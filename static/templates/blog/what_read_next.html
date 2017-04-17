@@ -1,12 +1,21 @@
-<button ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
-    Previous
-</button>
-{{currentPage+1}}
-<button ng-disabled="currentPage >= getData().length/pageSize - 1" ng-click="currentPage=currentPage+1">
-    Next
-</button>
+<div class="row">
+    <div class="col-md-6">
+        <h2>What to Read Next</h2>
+    </div>
+    <div class="col-md-6">
+        <h3>
+            <button ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
+                Previous
+            </button>
+            <button ng-disabled="currentPage >= $ctrl.random_articles.length/4 - 1" ng-click="currentPage=currentPage+1">
+                Next
+            </button>
+        </h3>
+    </div>
+</div>
 
-<div ng-repeat="article in $ctrl.random_articles ">
+
+<div ng-repeat="article in $ctrl.random_articles | startFrom:currentPage*4 | limitTo:4">
     <!-- list of articles -->
     <div class="col-md-2">
         <a href="#" class="thumbnail">

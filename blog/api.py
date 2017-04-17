@@ -26,6 +26,6 @@ class RandomArticlesApi(generics.ListAPIView):
     serializer_class = ArticleSerializer
 
     def get_queryset(self):
-    	articles = list(self.model.objects.all().select_related('author'))
-    	random.shuffle(articles)
-    	return articles
+        articles = list(self.model.objects.all().select_related('author'))
+        random.shuffle(articles)
+        return articles

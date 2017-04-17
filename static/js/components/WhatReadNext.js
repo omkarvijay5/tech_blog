@@ -12,3 +12,15 @@ angular.module('blog').component('whatReadNext', {
   templateUrl: TEMPLATE_CONFIG + 'blog/what_read_next.html',
   controller: WhatReadNextController
 });
+
+angular.module('blog').filter('startFrom', function() {
+    return function(input, start) {
+        if (input.length > 0){
+            start = +start; //parse to int
+            return input.slice(start);
+        } else {
+            return []
+        }
+
+    }
+});
