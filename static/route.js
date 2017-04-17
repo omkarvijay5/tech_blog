@@ -11,4 +11,10 @@ blog.config(function($routeProvider) {
         controllerAs: '$ctrl'
     }).
     otherwise({redirectTo: '/'})
+    .when("/articles/:id", {
+        templateUrl: TEMPLATE_CONFIG + "blog/article_detail.html",
+        controller: 'ArticleDetailController',
+        controllerAs: '$ctrl'
+    }).
+    otherwise({redirectTo: '/'})
 });
