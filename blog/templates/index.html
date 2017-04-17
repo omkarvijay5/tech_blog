@@ -14,8 +14,11 @@
 
         <script src="{% static 'app.js' %}"></script>
         <script src="{% static 'route.js' %}"></script>
+        <script src="{% static 'js/components/LeftSideBarComponent.js' %}"></script>
+        <script src="{% static 'js/components/WhatReadNext.js' %}"></script>
         <script src="{% static 'js/controllers/ArticleController.js' %}"></script>
         <script src="{% static 'js/services/ArticleListService.js' %}"></script>
+        <script src="{% static 'js/services/RandomArticleService.js' %}"></script>
 
     </head>
 
@@ -48,28 +51,32 @@
 
             <div class="row">
 
-                <!-- left side bar -->
-                <div class="col-md-3">
-                    <left-sidebar></left-sidebar>
-                    sdfed
-                </div>
-                <!-- end of left side bar -->
+                {% verbatim %}
+                    <!-- left side bar -->
+                    <div class="col-md-3">
+                        <left-sidebar></left-sidebar>
+                    </div>
+                    <!-- end of left side bar -->
 
-                <!-- articles content -->
-                <div class="col-md-9">
+                    <!-- articles content -->
+                    <div class="col-md-9">
 
-                    <!-- main articles content -->
-                    <div class="content">
-                        {% verbatim %}
+                        <!-- main articles content -->
+                        <div class="content">
                             <div class="content">
                                 <div ng-view></div>
                             </div>
-                        {% endverbatim %}
-                    </div>
-                    <!-- end of main articles content -->
+                        </div>
+                        <!-- end of main articles content -->
 
-                </div>
-                <!-- end of articles content -->
+                        <!-- what read next start -->
+                        <h2>What to Read Next</h2>
+                        <what-read-next></what-read-next>
+                        <!-- end of what read next -->
+
+                    </div>
+                    <!-- end of articles content -->
+                {% endverbatim %}
 
             </div>
         </div>

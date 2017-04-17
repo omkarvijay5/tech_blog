@@ -1,0 +1,18 @@
+<button ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
+    Previous
+</button>
+{{currentPage+1}}
+<button ng-disabled="currentPage >= getData().length/pageSize - 1" ng-click="currentPage=currentPage+1">
+    Next
+</button>
+
+<div ng-repeat="article in $ctrl.random_articles ">
+    <!-- list of articles -->
+    <div class="col-md-2">
+        <a href="#" class="thumbnail">
+          <img src="{{article.hero_image}}">
+        </a>
+        <strong>{{article.title}}</strong>
+    </div>
+    <!-- end of list of articles -->
+</div>
