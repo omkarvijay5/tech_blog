@@ -1,0 +1,26 @@
+<h3>Top 10 List</h3>
+
+<!-- random article -->
+<div class="random-article">
+    <strong><p>{{$ctrl.random_article.pub_date}} | {{$ctrl.random_article.author}}</p></strong>
+    <img src="{{$ctrl.random_article.hero_image}}" class="img-responsive" style="max-width: 80%; margin: 20 20">
+    <p>{{$ctrl.random_article.text}}</p>
+</div>
+<!-- end of random article -->
+
+<ul>
+    <div ng-repeat="article in $ctrl.articles ">
+        <!-- list of articles -->
+        <li>
+            <h3>{{article.title}}</h3>
+            <p>{{article.text}}</p>
+        </li>
+        <!-- end of list of articles -->
+    </div>
+</ul>
+
+
+
+
+
+
