@@ -11,19 +11,14 @@ function ArticleListController($scope, $resource, ArticleListService) {
             ctrl.random_article = articles[random_index]
             articles.splice(random_index, 1)
             ctrl.articles = articles
-            console.log(random_index)
         } else {
             ctrl.articles = articles
             ctrl.random_article = null
         }
+    
     });
 }
 
 angular
   .module('blog')
   .controller('ArticleListController', ArticleListController)
-
-
-blog.component('leftSidebar', {
-  templateUrl: TEMPLATE_CONFIG + 'blog/left_sidebar.html',
-});
