@@ -22,3 +22,8 @@ function ArticleListController($scope, $resource, ArticleListService) {
 angular
   .module('blog')
   .controller('ArticleListController', ArticleListController)
+
+
+blog.component('leftSidebar', {
+  templateUrl: TEMPLATE_CONFIG + 'blog/left_sidebar.html',
+});
