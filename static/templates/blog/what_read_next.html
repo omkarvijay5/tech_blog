@@ -19,7 +19,7 @@
     <div ng-repeat="article in $ctrl.random_articles | startFrom:currentPage*4 | limitTo:4">
         <!-- list of articles -->
         <div class="col-md-2">
-            <a href="#!/articles/{{article.id}}" class="thumbnail">
+            <a ng-href="#!/articles/{{article.id}}" class="thumbnail">
               <img src="{{article.hero_image}}">
             </a>
             <strong>{{article.title}}</strong>
