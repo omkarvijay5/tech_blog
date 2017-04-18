@@ -7,13 +7,13 @@
     <p>{{$ctrl.random_article.text}}</p>
 </div>
 <!-- end of random article -->
-
 <ul>
     <div ng-repeat="article in $ctrl.articles ">
         <!-- list of articles -->
         <li>
             <h3>{{article.title}}</h3>
             <p>{{article.text}}</p>
+            <h3><a href="#!/articles/{{article.id}}">Call to Action</a></h3>
         </li>
         <!-- end of list of articles -->
     </div>
